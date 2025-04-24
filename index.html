@@ -8,25 +8,13 @@
 </head>
 <body>
 
-  <div class="heart">
-    <svg viewBox="0 0 32 29.6">
-      <defs>
-        <linearGradient id="rainbowGradient" gradientTransform="rotate(90)">
-          <stop offset="0%" stop-color="red"/>
-          <stop offset="16%" stop-color="orange"/>
-          <stop offset="32%" stop-color="yellow"/>
-          <stop offset="48%" stop-color="green"/>
-          <stop offset="64%" stop-color="blue"/>
-          <stop offset="80%" stop-color="indigo"/>
-          <stop offset="100%" stop-color="violet"/>
-        </linearGradient>
-      </defs>
-      <path d="M23.6,0c-2.9,0-5.4,1.8-6.6,4.3C15.8,1.8,13.3,0,10.4,0C4.7,0,0,4.7,0,10.4c0,6.1,5.2,11.2,13.1,17.9l2.1,1.8l2.1-1.8
-      C26.8,21.6,32,16.5,32,10.4C32,4.7,27.3,0,21.6,0H23.6z"/>
-    </svg>
-  </div>
+  <div class="heart"></div>
 
-  <div class="message" id="typed-message"></div>
+  <div class="message" id="typed-message">
+    <span id="line-1"></span><br />
+    <span id="line-2"></span><br />
+    <span id="line-3"></span>
+  </div>
 
   <audio id="bg-music" loop>
     <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
