@@ -1,79 +1,45 @@
-\body {
+body {
   margin: 0;
   padding: 0;
-  background-color: black;
+  background: black;
   font-family: 'Comic Sans MS', cursive;
-  color: white;
-  text-align: center;
   overflow: hidden;
 }
 
 .heart {
-  width: 100px;
-  height: 100px;
-  background-color: red;
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(-45deg);
-  animation: rainbow 5s linear infinite;
-  border-radius: 50% 50% 0 0;
+  transform: translate(-50%, -50%) scale(1.5);
 }
 
-.heart::before,
-.heart::after {
-  content: "";
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  background-color: red;
-  border-radius: 50%;
+svg {
+  width: 200px;
+  height: 200px;
+  animation: pulse 2s infinite;
 }
 
-.heart::before {
-  left: -50px;
-  top: 0;
+path {
+  fill: url(#rainbowGradient);
 }
 
-.heart::after {
-  left: 50px;
-  top: 0;
-}
-
-@keyframes rainbow {
-  0% {
-    background-color: red;
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1.5);
   }
-  14% {
-    background-color: orange;
-  }
-  28% {
-    background-color: yellow;
-  }
-  42% {
-    background-color: green;
-  }
-  57% {
-    background-color: blue;
-  }
-  71% {
-    background-color: indigo;
-  }
-  85% {
-    background-color: violet;
-  }
-  100% {
-    background-color: red;
+  50% {
+    transform: scale(1.65);
   }
 }
 
 .message {
   position: absolute;
-  top: 65%;
+  top: 75%;
   width: 100%;
-  font-size: 1.8rem;
+  text-align: center;
+  font-size: 1.5rem;
   color: white;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  text-shadow: 0 0 10px rgba(255,255,255,0.7);
 }
 
 button {
@@ -88,6 +54,7 @@ button {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(255, 20, 147, 0.7);
   cursor: pointer;
+  z-index: 999;
 }
 
 @keyframes floatUp {
@@ -100,9 +67,11 @@ button {
 @media (max-width: 480px) {
   .message {
     font-size: 1.2rem;
+    padding: 0 10px;
   }
 
-  .heart {
-    transform: translate(-50%, -50%) rotate(-45deg) scale(1.5);
+  svg {
+    width: 150px;
+    height: 150px;
   }
 }
