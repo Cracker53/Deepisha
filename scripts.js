@@ -1,4 +1,4 @@
-// Updated Typing Effect
+]// Typing Effect
 const msg1 = "Good morning";
 const msg2 = "Miss Makayla ❤️";
 const msg3 = "Take Care!";
@@ -37,3 +37,26 @@ function typeLetter3() {
 }
 
 setTimeout(typeLetter1, 1000); // Start typing after a delay
+
+// Confetti on click
+document.body.addEventListener('click', () => {
+  confetti({
+    particleCount: 100,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
+});
+
+// Floating hearts
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.innerText = "❤️";
+  heart.style.position = "fixed";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.bottom = "-20px";
+  heart.style.fontSize = Math.random() * 20 + 10 + "px";
+  heart.style.opacity = 1;
+  heart.style.animation = "floatUp 4s linear forwards";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 4000);
+}, 500);
