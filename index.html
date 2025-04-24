@@ -4,83 +4,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Good Morning Miss Makayla</title>
   <style>
-    * {
-      box-sizing: border-box;
+    body {
       margin: 0;
       padding: 0;
-    }
-
-    body {
-      height: 100vh;
       background: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      color: white;
-      text-align: center;
-      padding: 1rem;
+      font-family: 'Comic Sans MS', cursive;
       overflow: hidden;
-      position: relative;
-    }
-
-    .heart-container {
-      position: relative;
-      width: 300px;
-      height: 270px;
-      transform: rotate(-45deg);
-      animation: pulse 2s infinite;
     }
 
     .heart {
+      width: 100px;
+      height: 90px;
       position: absolute;
-      width: 300px;
-      height: 270px;
-      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
-      background-size: 400% 400%;
-      animation: rainbow 5s linear infinite;
-      border-radius: 50% 50% 0 0;
-      top: 0;
-      left: 0;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(3);
+      animation: pulse 2s infinite;
     }
 
-    .heart::after,
-    .heart::before {
+    .heart::before,
+    .heart::after {
       content: "";
+      width: 100px;
+      height: 90px;
       position: absolute;
-      width: 300px;
-      height: 270px;
-      background: inherit;
-      border-radius: 50% 50% 0 0;
+      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+      border-radius: 50px 50px 0 0;
+      background-size: 300% 300%;
+      animation: rainbow 5s linear infinite;
     }
 
     .heart::before {
-      top: -150px;
-      left: 0;
+      left: -50px;
     }
 
     .heart::after {
-      top: 0;
-      left: 150px;
+      left: 50px;
     }
 
-    .message {
-      position: absolute;
-      top: 45%;
-      left: 50%;
-      transform: rotate(45deg) translate(-50%, -50%);
-      font-size: 1.2rem;
-      line-height: 1.4;
-      color: #fff;
-      text-shadow: 0 0 10px rgba(255,255,255,0.7);
+    .heart {
+      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 300% 300%;
+      animation: rainbow 5s linear infinite, pulse 2s infinite;
+      transform: rotate(-45deg) scale(3);
+      border-radius: 50px 50px 0 0;
     }
 
     @keyframes pulse {
       0%, 100% {
-        transform: rotate(-45deg) scale(1);
+        transform: rotate(-45deg) scale(3);
       }
       50% {
-        transform: rotate(-45deg) scale(1.1);
+        transform: rotate(-45deg) scale(3.2);
       }
     }
 
@@ -93,11 +68,14 @@
       }
     }
 
-    @keyframes floatUp {
-      to {
-        transform: translateY(-100vh);
-        opacity: 0;
-      }
+    .message {
+      position: absolute;
+      top: 75%;
+      width: 100%;
+      text-align: center;
+      font-size: 1.5rem;
+      color: white;
+      text-shadow: 0 0 10px rgba(255,255,255,0.7);
     }
 
     button {
@@ -115,37 +93,45 @@
       z-index: 999;
     }
 
-    @media (max-width: 400px) {
-      .heart-container {
-        width: 200px;
-        height: 180px;
+    @keyframes floatUp {
+      to {
+        transform: translateY(-100vh);
+        opacity: 0;
       }
-      .heart, .heart::before, .heart::after {
-        width: 200px;
-        height: 180px;
-      }
+    }
+
+    @media (max-width: 480px) {
       .message {
-        font-size: 1rem;
+        font-size: 1.2rem;
+        padding: 0 10px;
+      }
+
+      .heart {
+        transform: rotate(-45deg) scale(2.2);
+      }
+
+      @keyframes pulse {
+        0%, 100% {
+          transform: rotate(-45deg) scale(2.2);
+        }
+        50% {
+          transform: rotate(-45deg) scale(2.4);
+        }
       }
     }
   </style>
 </head>
 <body>
-  <div class="heart-container">
-    <div class="heart"></div>
-    <div class="message" id="typed-message"></div>
-  </div>
 
-  <!-- Background Music -->
+  <div class="heart"></div>
+  <div class="message" id="typed-message"></div>
+
   <audio id="bg-music" loop>
     <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
-    Your browser does not support the audio tag.
   </audio>
   <button onclick="document.getElementById('bg-music').play()">🎵 Play Music</button>
 
-  <!-- Confetti JS -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-
   <script>
     // Typing Effect
     const msg = "Good morning Miss Makayla ❤️ Take Care!";
@@ -160,16 +146,16 @@
     }
     setTimeout(typeLetter, 1000);
 
-    // Confetti on Click
+    // Confetti on click
     document.body.addEventListener('click', () => {
       confetti({
-        particleCount: 150,
-        spread: 100,
+        particleCount: 100,
+        spread: 70,
         origin: { y: 0.6 }
       });
     });
 
-    // Floating Hearts
+    // Floating hearts
     setInterval(() => {
       const heart = document.createElement("div");
       heart.innerText = "❤️";
