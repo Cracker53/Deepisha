@@ -1,7 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Rainbow Heart for Miss Makayla</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Good Morning Miss Makayla</title>
   <style>
     body {
       margin: 0;
@@ -13,13 +15,15 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
       overflow: hidden;
+      text-align: center;
+      padding: 1rem;
     }
 
     .heart {
-      width: 200px;
-      height: 180px;
+      width: 40vmin;
+      height: 36vmin;
       position: relative;
       animation: pulse 2s infinite;
     }
@@ -28,8 +32,8 @@
     .heart::after {
       content: "";
       position: absolute;
-      width: 200px;
-      height: 180px;
+      width: 40vmin;
+      height: 36vmin;
       background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
       border-radius: 50%;
       top: 0;
@@ -38,24 +42,23 @@
     }
 
     .heart::after {
-      left: 100px;
+      left: 20vmin;
     }
 
     .heart-shape {
       position: absolute;
-      width: 200px;
-      height: 200px;
+      width: 40vmin;
+      height: 40vmin;
       background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
       transform: rotate(-45deg);
-      top: 50px;
-      left: -50px;
+      top: 10vmin;
+      left: -10vmin;
       z-index: -1;
     }
 
     @keyframes pulse {
-      0% { transform: scale(1); }
+      0%, 100% { transform: scale(1); }
       50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
     }
 
     @keyframes rainbow {
@@ -64,9 +67,9 @@
     }
 
     .message {
-      margin-top: 30px;
-      font-size: 28px;
-      text-align: center;
+      margin-top: 2rem;
+      font-size: 5vmin;
+      line-height: 1.3;
       animation: fadeInUp 3s ease-in-out;
     }
 
@@ -78,6 +81,12 @@
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 400px) {
+      .message {
+        font-size: 6vmin;
       }
     }
   </style>
