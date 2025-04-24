@@ -1,12 +1,93 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spinning Rainbow Text</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Rainbow Heart for Miss Makayla</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: #fff;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .heart {
+      width: 200px;
+      height: 180px;
+      position: relative;
+      animation: pulse 2s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 180px;
+      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+      animation: rainbow 5s linear infinite;
+    }
+
+    .heart::after {
+      left: 100px;
+    }
+
+    .heart-shape {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+      transform: rotate(-45deg);
+      top: 50px;
+      left: -50px;
+      z-index: -1;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes rainbow {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+
+    .message {
+      margin-top: 30px;
+      font-size: 28px;
+      text-align: center;
+      animation: fadeInUp 3s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="spinning-text">🌈 Good morning Miss Makayla🤗 Take Care 🌈</div>
-    <script src="script.js"></script>
+  <div class="heart">
+    <div class="heart-shape"></div>
+  </div>
+  <div class="message">
+    Good morning Miss Makayla ❤️<br>Take care!
+  </div>
 </body>
 </html>
