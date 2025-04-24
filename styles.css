@@ -1,53 +1,108 @@
-body {
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+\body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  font-family: 'Comic Sans MS', cursive;
+  color: white;
+  text-align: center;
+  overflow: hidden;
 }
 
-.spinning-text {
-    font-size: 3rem;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    color: white;
-    animation: spin 5s linear infinite, colorChange 5s linear infinite;
-    text-align: center;
+.heart {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  animation: rainbow 5s linear infinite;
+  border-radius: 50% 50% 0 0;
 }
 
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+.heart::before,
+.heart::after {
+  content: "";
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background-color: red;
+  border-radius: 50%;
 }
 
-@keyframes colorChange {
-    0% {
-        color: red;
-    }
-    14% {
-        color: orange;
-    }
-    28% {
-        color: yellow;
-    }
-    42% {
-        color: green;
-    }
-    57% {
-        color: blue;
-    }
-    71% {
-        color: indigo;
-    }
-    85% {
-        color: violet;
-    }
-    100% {
-        color: red;
-    }
+.heart::before {
+  left: -50px;
+  top: 0;
+}
+
+.heart::after {
+  left: 50px;
+  top: 0;
+}
+
+@keyframes rainbow {
+  0% {
+    background-color: red;
+  }
+  14% {
+    background-color: orange;
+  }
+  28% {
+    background-color: yellow;
+  }
+  42% {
+    background-color: green;
+  }
+  57% {
+    background-color: blue;
+  }
+  71% {
+    background-color: indigo;
+  }
+  85% {
+    background-color: violet;
+  }
+  100% {
+    background-color: red;
+  }
+}
+
+.message {
+  position: absolute;
+  top: 65%;
+  width: 100%;
+  font-size: 1.8rem;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  background: hotpink;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 20, 147, 0.7);
+  cursor: pointer;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .message {
+    font-size: 1.2rem;
+  }
+
+  .heart {
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1.5);
+  }
 }
