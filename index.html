@@ -13,58 +13,28 @@
     }
 
     .heart {
-      width: 100px;
-      height: 90px;
       position: absolute;
       top: 40%;
       left: 50%;
-      transform: translate(-50%, -50%) scale(3);
+      transform: translate(-50%, -50%) scale(1.5);
+    }
+
+    svg {
+      width: 200px;
+      height: 200px;
       animation: pulse 2s infinite;
     }
 
-    .heart::before,
-    .heart::after {
-      content: "";
-      width: 100px;
-      height: 90px;
-      position: absolute;
-      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
-      border-radius: 50px 50px 0 0;
-      background-size: 300% 300%;
-      animation: rainbow 5s linear infinite;
-    }
-
-    .heart::before {
-      left: -50px;
-    }
-
-    .heart::after {
-      left: 50px;
-    }
-
-    .heart {
-      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
-      background-size: 300% 300%;
-      animation: rainbow 5s linear infinite, pulse 2s infinite;
-      transform: rotate(-45deg) scale(3);
-      border-radius: 50px 50px 0 0;
+    path {
+      fill: url(#rainbowGradient);
     }
 
     @keyframes pulse {
       0%, 100% {
-        transform: rotate(-45deg) scale(3);
+        transform: scale(1.5);
       }
       50% {
-        transform: rotate(-45deg) scale(3.2);
-      }
-    }
-
-    @keyframes rainbow {
-      0% {
-        background-position: 0% 50%;
-      }
-      100% {
-        background-position: 100% 50%;
+        transform: scale(1.65);
       }
     }
 
@@ -106,24 +76,33 @@
         padding: 0 10px;
       }
 
-      .heart {
-        transform: rotate(-45deg) scale(2.2);
-      }
-
-      @keyframes pulse {
-        0%, 100% {
-          transform: rotate(-45deg) scale(2.2);
-        }
-        50% {
-          transform: rotate(-45deg) scale(2.4);
-        }
+      svg {
+        width: 150px;
+        height: 150px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="heart"></div>
+  <div class="heart">
+    <svg viewBox="0 0 32 29.6">
+      <defs>
+        <linearGradient id="rainbowGradient" gradientTransform="rotate(90)">
+          <stop offset="0%" stop-color="red"/>
+          <stop offset="16%" stop-color="orange"/>
+          <stop offset="32%" stop-color="yellow"/>
+          <stop offset="48%" stop-color="green"/>
+          <stop offset="64%" stop-color="blue"/>
+          <stop offset="80%" stop-color="indigo"/>
+          <stop offset="100%" stop-color="violet"/>
+        </linearGradient>
+      </defs>
+      <path d="M23.6,0c-2.9,0-5.4,1.8-6.6,4.3C15.8,1.8,13.3,0,10.4,0C4.7,0,0,4.7,0,10.4c0,6.1,5.2,11.2,13.1,17.9l2.1,1.8l2.1-1.8
+      C26.8,21.6,32,16.5,32,10.4C32,4.7,27.3,0,21.6,0H23.6z"/>
+    </svg>
+  </div>
+
   <div class="message" id="typed-message"></div>
 
   <audio id="bg-music" loop>
