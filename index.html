@@ -1,21 +1,25 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Good Morning Miss Makayla</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Good Morning Message</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="heart">❤️</div>
+  <div class="message">
+    <h1>Good Morning Miss Makayla🤗</h1>
+    <p>Take Care</p>
+  </div>
 
-  <div class="heart"></div>
-  <div class="message" id="typed-message"></div>
-
-  <audio id="bg-music" loop>
+  <!-- Music -->
+<audio id="bg-music" loop>
     <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
   </audio>
   <button onclick="document.getElementById('bg-music').play()">🎵 Play Music</button>
 
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
   <script src="script.js"></script>
 </body>
 </html>
